@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Resume</title>
+  <style>
+    html,body{height:100%;margin:0;background:#0b1220}
+    .topbar{height:56px;background:#071022;color:#fff;display:flex;align-items:center;padding:0 12px;gap:10px}
+    .topbar a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.03)}
+    iframe{width:100%;height:calc(100vh - 56px);border:none;}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="/">← Back</a>
+    <div>Resume — View</div>
+  </div>
+  <iframe src="{{ url_for('static', filename='files/' + file) }}"></iframe>
+</body>
+</html>

@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <h1 class="hero-title">Bheema udaykiran </h1>
+
+      <h2 class="hero-subtitle">
+        <span id="typed"
+          data-text='["Creative Technologist","ML Engineer","Full Stack Developer"]'>
+          AI & ML Engineer
+        </span>
+      </h2>
+
+      <p class="hero-desc">
+        I build ML-powered tools, creative frontends and reliable backends.
+      </p>
+
+      <div class="hero-ctas">
+        <a class="btn primary" href="/resume">Download Resume</a>
+        <a class="btn" href="#projects">See Projects</a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <div class="hero-photo-frame">
+        <img src="{{ url_for('static', filename='images/me.jpg') }}" alt="Uday">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="skills container">
+  <h2>Top Skills</h2>
+  <div class="skill-grid">
+    <div class="skill-pill">Python</div>
+    <div class="skill-pill">Machine Learning</div>
+    <div class="skill-pill">Flask</div>
+    <div class="skill-pill">Computer Vision</div>
+    <div class="skill-pill">JavaScript</div>
+    <div class="skill-pill">Fast API</div>
+    <div class="skill-pill">SQL</div>
+    <div class="skill-pill">Django</div>
+  </div>
+</section>
+
+
+<!-- EDUCATION -->
+<section id="education" class="education container">
+  <h2>Education</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>BE — Computer Science</h3>
+        <p>Visvesvaraya Technological University — 2022 Batch (7th Sem)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>PUC — Science</h3>
+        <p>NRI college -(2020-2022)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience" class="experience container">
+  <h2>Work Experience</h2>
+
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <h3>Intern — AI Market Intern</h3>
+      <p class="muted">Proptelligence • Bengaluru</p>
+      <p>Worked on OCR model improvements, dataset annotation & evaluation pipelines.</p>
+      <div class="badges"><span>Python</span><span>TensorFlow</span></div>
+    </div>
+
+    <div class="exp-card">
+      <h3>Elewate</h3>
+      <p class="muted">Remote</p>
+      <p>Engineered responsive landing pages and dynamic UI components, integrating them with Python APIs for real-time Home Price Prediction.</p>
+      <div class="badges"><span>Python</span><span>   HTML</span><span>   CSS</span><span>   JS</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="projects container">
+  <h2>Projects & Reels</h2>
+
+  <div class="project-grid video-grid">
+
+    <!-- PROJECT 1 -->
+    <article class="project card-hover"
+      data-video="{{ url_for('static', filename='videos/proj1.mp4') }}"
+      data-title="Multilingual OCR">
+
+      <div class="project-media">
+        <video muted loop playsinline>
+          <source src="{{ url_for('static', filename='videos/proj1.mp4') }}" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="project-body">
+        <h3>Sign language recognition on vedio calls</h3>
+        <div class="proj-badges"><span>Python</span><span>     WebRTC</span><span>    ML</span></div>
+        <p>Built a live sign language detection model that recognizes gestures during video calls for seamless communication</p>
+      </div>
+    </article>
+
+
+    <!-- PROJECT 2 -->
+    <article class="project card-hover"
+      data-video="{{ url_for('static', filename='videos/proj2.mp4') }}"
+      data-title="Encrypted Chat">
+
+      <div class="project-media">
+        <video muted loop playsinline>
+          <source src="{{ url_for('static', filename='videos/proj2.mp4') }}" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="project-body">
+        <h3>zoro- AI voice chatbot</h3>
+        <div class="proj-badges"><span>python</span><span>  Ollama</span></div>
+        <p>Developed a voice-enabled AI chatbot powered by Ollama, enabling natural, conversational speech input and output.</p>
+      </div>
+
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project card-hover"
+      data-video="{{ url_for('static', filename='videos/proj3.mp4') }}"
+      data-title="Portfolio Generator">
+
+      <div class="project-media">
+        <video muted loop playsinline>
+          <source src="{{ url_for('static', filename='videos/proj3.mp4') }}" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="project-body">
+        <h3>Portfolio Generator</h3>
+        <div class="proj-badges"><span>Flask</span><span>   Automation</span></div>
+        <p>Creates polished portfolio websites automatically from structured profile data.</p>
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="container certificates">
+  <h2>Certificates</h2>
+  <div class="cert-card">
+    <img 
+      src="{{ url_for('static', filename='certificates/cert1_small.jpg') }}"
+      data-full="{{ url_for('static', filename='certificates/cert1.jpg') }}"
+      class="cert-thumb cert-open"
+      alt="Certificate">
+    <h4>Gen AI – Google</h4>
+  </div>
+
+
+
+    
+</section>
+
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="video-modal" aria-hidden="true">
+  <div class="video-modal-inner">
+    <button id="modalClose" class="modal-close">✕</button>
+    <h3 id="modalTitle"></h3>
+    <video id="modalVideo" controls playsinline></video>
+  </div>
+</div>
+
+
+<!-- CHATBOT -->
+<div id="chatToggle" class="chat-toggle">🙋</div>
+
+<div id="chatWindow" class="chat-window">
+
+  <div class="chat-header">
+    <span>Chat with Uday AI</span>
+    <button id="closeChat" class="chat-close">✕</button>
+  </div>
+
+  <div id="chatLog" class="chat-log"></div>
+
+  <form id="chatForm" class="chat-form">
+    <input id="chatInput"
+      placeholder="Ask me about projects, skills, resume..."
+      autocomplete="off">
+    <button type="submit">Send</button>
+  </form>
+
+</div>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact container">
+  <h2>Contact</h2>
+
+  <form action="/contact" method="post" id="contactForm">
+    <label>Name<input name="name" required></label>
+    <label>Email<input name="email" type="email" required></label>
+    <label>Phone<input name="phone"></label>
+    <label>Message<textarea name="message" rows="5" required></textarea></label>
+    <button type="submit" class="btn primary">Send Message</button>
+  </form>
+</section>
+
+{% endblock %}

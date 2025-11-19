@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Bheema udaykiran  — </title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="avatar" class="avatar">
+      <div>
+        <h1>Bheema Uday Kiran </h1>
+        <p class="tag">AI & ML Engineer • Bengaluru</p>
+      </div>
+    </div>
+
+        <div id="certModal" class="cert-modal">
+      <span id="certClose" class="cert-close">×</span>
+      <img id="certModalImg" class="cert-modal-img">
+    </div>
+
+
+    <nav class="nav">
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="/resume-view" target="_blank">View Resume</a>
+      <a href="/resume" target="_blank">Download</a>
+      <a href="https://github.com/udaybheema337" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/udaybheema" target="_blank">LinkedIn</a>
+    </nav>
+
+    <div class="controls">
+      <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="#contact" class="btn">Contact</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main" class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-wrap">
+          {% for category, msg in messages %}
+            <div class="flash {{ category }}">{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- FIXED SINGLE HIRE ME BUTTON -->
+  <button id="hireButton" class="hire-btn">Hire Me</button>
+
+  <!-- VIDEO MODAL (unchanged) -->
+  <div id="videoModal" class="video-modal" aria-hidden="true">
+    <div class="video-modal-inner">
+      <button id="modalClose" class="modal-close">✕</button>
+      <h3 id="modalTitle"></h3>
+      <video id="modalVideo" controls playsinline style="width:100%;border-radius:10px"></video>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© {{ current_year }} Uday Kiran Bheema — AI & ML Engineer • Bengaluru</p>
+  </footer>
+
+</body>
+</html>
